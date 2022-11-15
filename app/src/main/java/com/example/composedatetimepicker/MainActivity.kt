@@ -1,14 +1,12 @@
 package com.example.composedatetimepicker
 
-import android.content.Context
+
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -43,7 +41,7 @@ fun DateTimePicker() {
         mutableStateOf(LocalDate.now())
     }
     var pickTime by remember {
-        mutableStateOf(LocalTime.NOON)
+        mutableStateOf(LocalTime.now())
     }
     val formattedDate by remember {
         derivedStateOf {
@@ -108,7 +106,7 @@ fun DateTimePicker() {
         }
     ) {
         timepicker(
-            initialTime = LocalTime.NOON,
+            initialTime = LocalTime.now(),
             title = "Pick a time",
         ) {
             pickTime = it
